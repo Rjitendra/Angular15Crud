@@ -1,0 +1,35 @@
+<div class="body">
+<form *ngIf="isLoad" [formGroup]="myForm" (ngSubmit)="submit(myForm)">
+  <div class="container">
+  <div >
+    <label>
+      Book Name:
+      <input formControlName="name" placeholder="Book Name" class="text">
+    </label>
+    <div *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
+      Please provide a book name.
+    </div>
+  </div>
+  <div >
+    <label>
+      Price:
+      <input formControlName="price" placeholder="Price" class="text">
+    </label>
+    <div *ngIf="myForm.get('price')?.invalid && (myForm.get('price')?.dirty || myForm.get('price')?.touched)">
+      Please provide a price.
+    </div>
+  </div>
+  <div >
+    <label>
+      Publisher:
+      <input formControlName="publisher" placeholder="Publisher" class="text">
+    </label>
+    <div *ngIf="myForm.get('publisher')?.invalid && (myForm.get('publisher')?.dirty || myForm.get('publisher')?.touched)">
+      Please provide a price.
+    </div>
+  </div>
+  <button type="submit" class="btn">{{isAdd?'Add':'Save'}}</button>
+  <button type="button" class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>
+</div>
