@@ -25,7 +25,7 @@ export class OrderListComponent implements OnInit {
       this.router.navigate(['edit/'+order.id])
     }
     
-    orderBook(book:IOrder): void {
+    orderDelete(book:IOrder): void {
       this.orderService.deleteOrder(book.id as number).subscribe((res => {
         this.orders = this.orders.filter(x => x.id !== book.id);
       }));
