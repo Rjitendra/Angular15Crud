@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { OrderEditComponent } from './components/order-edit/order-edit.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 import { DataService } from './service/data.service';
 
 
@@ -15,7 +17,9 @@ import { DataService } from './service/data.service';
   declarations: [
     AppComponent,
     BookListComponent,
-    BookEditComponent
+    BookEditComponent,
+    OrderListComponent,
+    OrderEditComponent
   ],
   imports: [
     BrowserModule,

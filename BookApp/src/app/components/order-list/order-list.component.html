@@ -1,0 +1,29 @@
+<div class="mt-1">
+  <button [routerLink]="['/add']" class="btn btn-primary md-1">Add Order</button>
+</div>
+<div class="mt-1">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Order Description</th>
+        <th>Order Value</th>
+        <th>Order Type</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let order of orders">
+        <td>{{order.id}}</td>
+        <td>{{order.description}}</td>
+        <td>{{order.value}}</td>
+        <td>{{order.type}}</td>
+        <td><span (click)="orderEdit(order)"><i class="fa fa-edit cursor fa-2x"></i></span></td>
+        <td> <span (click)="orderBook(order)"><i class="fa fa-trash cursor fa-2x"></i></span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
