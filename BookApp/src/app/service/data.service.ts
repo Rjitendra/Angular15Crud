@@ -11,13 +11,11 @@ export class DataService implements InMemoryDbService {
   constructor() { }
 
   createDb() {
-    // let books = [ .. ];
-
-
-    let books: IBook[] = [
+    
+   let books: IBook[] = [
       {
         id: 1,
-        name: 'github.com/rjitenra',
+        name: 'DotNetCore7',
         price: 0,
         publisher: 'Jitendra'
       },
@@ -25,7 +23,7 @@ export class DataService implements InMemoryDbService {
     let orders: IOrder[] = [
       {
         id: 1,
-        description: 'book',
+        description: 'Five book order.',
         value: 1,
         type: OrderType.Store
       },

@@ -12,23 +12,25 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   getOrders(): Observable<IOrder[]> {
+
     return this.http.get<IOrder[]>(this.orderUrl).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
         return throwError(error);
-      })
-    );
+      }));
+
   }
 
   getOrderById(id: number): Observable<IOrder> {
+
     return this.http.get<IOrder>(this.orderUrl + id).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
         return throwError(error);
-      })
-    );
+      }));
+
   }
 
   createOrder(book: IOrder): Observable<IOrder> {
@@ -42,11 +44,15 @@ export class OrderService {
   }
 
   editOrder(order: IOrder): Observable<any> {
+
     return this.http.put(this.orderUrl + order.id, order);
+
   }
 
   deleteOrder(id: number): Observable<any> {
+
     return this.http.delete(this.orderUrl + id);
+
   }
 
 }

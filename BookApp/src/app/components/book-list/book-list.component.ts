@@ -21,7 +21,7 @@ export class BookListComponent implements OnInit {
     }
 
     bookEdit(book:IBook){
-      this.router.navigate(['edit/'+book.id])
+      this.router.navigate(['book/edit/'+book.id])
     }
     
     deleteBook(book:IBook): void {

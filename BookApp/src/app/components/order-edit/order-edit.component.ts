@@ -55,9 +55,10 @@ export class OrderEditComponent implements OnInit {
       );
   }
 
-  // convenience getter for easy access to form fields
   get f(): { [key: string]: AbstractControl; } { return this.myForm.controls; }
+
   submit(form: FormGroup) {
+    
     this.submitted = true;
     if (form.valid) {
       const data: IOrder = {

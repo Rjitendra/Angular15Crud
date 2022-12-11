@@ -1,21 +1,30 @@
-<div>
-  <button [routerLink]="['/add']" class="btn">Add Book</button>
+
+<div class="mt-1">
+  <button [routerLink]="['/book-add']" class="btn btn-primary md-1">Add Book</button>
 </div>
-<table id="customers">
-  <tr>
-    <th>S/N</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Publisher</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let book of books">
-    <td>{{book.id}}</td>
-    <td>{{book.name}}</td>
-    <td>{{book.price | currency}}</td>
-    <td>{{book.publisher}}</td>
-    <td><button (click)="bookEdit(book)">Edit</button></td>
-    <td><button (click)="deleteBook(book)">Delete</button></td>
-  </tr>
-</table>
+<div class="mt-1">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Publisher</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.price | currency}}</td>
+        <td>{{book.publisher}}</td>
+        <td><button (click)="bookEdit(book)">Edit</button></td>
+        <td><button (click)="deleteBook(book)">Delete</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

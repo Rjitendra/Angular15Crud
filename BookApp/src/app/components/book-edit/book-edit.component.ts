@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IBook } from '../../model/book';
 import { BookService } from '../../service/book.service';
@@ -14,6 +14,7 @@ export class BookEditComponent implements OnInit {
   id!: number;
   isAdd = false;
   isLoad = false;
+  submitted = false;
 
   constructor(
     private bookService: BookService,
@@ -49,8 +50,11 @@ export class BookEditComponent implements OnInit {
       );
   }
 
+  get f(): { [key: string]: AbstractControl; } { return this.myForm.controls; }
+
   submit(form: FormGroup) {
 
+    this.submitted = true;
     if (form.valid) {
       const data: IBook = {
         id: this.isAdd ? null : this.id,
@@ -60,18 +64,18 @@ export class BookEditComponent implements OnInit {
       };
       if (this.isAdd) {
         this.bookService.createBook(data).subscribe(response => {
-          this.router.navigate(['/'])
+          this.router.navigate(['book-list'])
         });
       } else {
         this.bookService.editBook(data).subscribe(response => {
-          this.router.navigate(['/'])
+          this.router.navigate(['book-list'])
         });
       }
     }
   }
 
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['book-list']);
   }
 }
 
